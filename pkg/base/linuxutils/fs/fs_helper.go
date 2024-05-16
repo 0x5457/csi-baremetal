@@ -143,7 +143,7 @@ func (h *WrapFSImpl) GetFSSpace(src string) (int64, error) {
 	for j := 1; j < len(split); j++ {
 		output := strings.Split(strings.TrimSpace(split[j]), " ")
 		if len(output) > 1 {
-			if strings.Contains(output[0], src) && len(output[0]) == 1 {
+			if strings.Contains(output[0], src) {
 				// Try to get size from string, e.g. "/dev       7982M"
 				sizeIdx := len(output) - 1
 				freeBytes, err := util.StrToBytes(output[sizeIdx])
